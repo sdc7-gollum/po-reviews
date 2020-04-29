@@ -1,13 +1,12 @@
-# Project Name
+# project-overnight/po-reviews
 
-> Project description
+> This is the reviews module of Project Overnight.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/project-overnight/po-photo-banner
+  - https://github.com/teamName/po-description
+  - https://github.com/teamName/po-reservation
 
 ## Table of Contents
 
