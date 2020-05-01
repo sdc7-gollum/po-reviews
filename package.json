@@ -32,6 +32,7 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.0",
     "faker": "^4.1.0",
+    "mongoose-seed": "^0.6.0",
     "nodemon": "^2.0.3",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
