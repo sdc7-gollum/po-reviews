@@ -2,21 +2,18 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const PlaceSchema = new Schema({
-  _id: Schema.Types.ObjectId,
-  reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }],
-});
+mongoose.connect('mongodb://localhost:27017/po-reviews', { useNewUrlParser: true, useUnifiedTopology: true });
+const db = mongoose.connection;
+db.on('err', console.error.bind(console, 'connection error:'));
+db.once('open', () => console.log('Database connected...'));
 
-const ReviewSchema = new Schema({
-  place: { type: Schema.Types.ObjectId, ref: 'Place' },
-  username: String,
-  pic: String,
-  date: Date,
-  body: String,
-  ratings: [Number],
+const PlaceSchema = new Schema({
+  _id: Number,
+  reviews: Array,
 });
 
 const Place = mongoose.model('Place', PlaceSchema);
-const Review = mongoose.model('Review', ReviewSchema);
 
-module.exports = { Place, Review };
+const getReviews = (id) => Place.find({ _id: id });
+
+module.exports = { Place, getReviews };
