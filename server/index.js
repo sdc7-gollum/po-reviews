@@ -11,8 +11,8 @@ app.use(express.urlencoded());
 
 app.get('/api/reviews/:id', (req, res) => {
   db.getReviews(req.params.id)
-    .then((rows) => res.json(rows))
-    .catch((err) => res.json({ message: `Error: ${err}` }));
+    .then((rows) => res.status(200).json(rows))
+    .catch((err) => res.status(400).json({ message: `Error: ${err}` }));
 });
 
 const PORT = process.env.PORT || 9999;
