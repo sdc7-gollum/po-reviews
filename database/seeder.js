@@ -1,12 +1,5 @@
-const mongoose = require('mongoose');
 const faker = require('faker');
 const db = require('./index');
-
-mongoose.Promise = global.Promise;
-
-mongoose.connect('mongodb://localhost/po-reviews')
-  .then(() => console.log('MongoDB connected...'))
-  .catch((err) => console.log(err));
 
 const generateReviews = () => {
   const reviews = [];
@@ -31,5 +24,5 @@ const generateReviews = () => {
 };
 
 for (let i = 0; i < 100; i += 1) {
-  db.Place.collection.insertOne({ reviews: generateReviews() });
+  db.Place.collection.insertOne({ _id: i + 1, reviews: generateReviews() });
 }
