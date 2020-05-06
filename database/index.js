@@ -1,19 +1,23 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-mongoose.connect('mongodb://localhost:27017/po-reviews', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/reviews`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 const db = mongoose.connection;
 db.on('err', console.error.bind(console, 'connection error:'));
 db.once('open', () => console.log('Database connected...'));
 
-const PlaceSchema = new Schema({
-  _id: Number,
+const RoomSchema = new Schema({
+  _id: { type: Number, index: true },
   reviews: Array,
 });
 
-const Place = mongoose.model('Place', PlaceSchema);
+const Room = mongoose.model('Room', RoomSchema);
 
-const getReviews = (id) => Place.find({ _id: id });
+const getReviews = (id) => Room.find({ _id: id });
 
-module.exports = { Place, getReviews };
+module.exports = { Room, getReviews };

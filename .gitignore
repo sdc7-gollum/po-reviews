@@ -22,3 +22,6 @@ coverage
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 client/dist/bundle.js
+
+# Sensitive information
+.env
