@@ -24,5 +24,5 @@ const generateReviews = () => {
 };
 
 for (let i = 0; i < 100; i += 1) {
-  db.Place.collection.insertOne({ _id: i + 1, reviews: generateReviews() });
+  db.Room.collection.insertOne({ _id: i + 1, reviews: generateReviews() });
 }

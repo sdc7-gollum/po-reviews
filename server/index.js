@@ -1,6 +1,6 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
-require('dotenv').config();
 const db = require('../database/index');
 
 const app = express();
@@ -15,5 +15,4 @@ app.get('/api/reviews/:id', (req, res) => {
     .catch((err) => res.status(400).json({ message: `Error: ${err}` }));
 });
 
-const PORT = process.env.PORT || 9999;
-app.listen(PORT, () => console.log(`listening on port ${PORT}`));
+app.listen(process.env.PORT, () => console.log(`listening on port ${process.env.PORT}`));
