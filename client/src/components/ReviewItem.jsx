@@ -17,13 +17,22 @@ class ReviewItem extends Component {
   }
 
   getShortenedDesc() {
-    const { body } = this.props;
+    const { review } = this.props;
+    const { body } = review;
     const desc = `${body.split('').slice(0, 300).join('')}...`;
     return desc;
   }
 
+  formatDate() {
+    const { review } = this.props;
+    const { date } = review;
+    const formattedDate = new Date(date);
+    return formattedDate.toLocaleString('en-US', { month: 'long', year: 'numeric' });
+  }
+
   render() {
-    const { name, date, body, pic } = this.props;
+    const { review } = this.props;
+    const { name, body, pic } = review;
     const { shortened } = this.state;
     return (
       <div className="review">
@@ -32,7 +41,7 @@ class ReviewItem extends Component {
           <span>{name}</span>
         </div>
         <div className="date">
-          <span>{date}</span>
+          <span>{this.formatDate()}</span>
         </div>
         <div className="desc">
           {shortened ? (
@@ -48,6 +57,7 @@ class ReviewItem extends Component {
 }
 
 ReviewItem.propTypes = {
+  review: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
