@@ -2,11 +2,18 @@
 
 * {
   font-family: 'Montserrat', sans-serif;
+  color: rgb(72, 72, 72);
   box-sizing: border-box;
 }
 
+.divider {
+  border: 0.5px solid rgb(230, 230, 230);
+  margin: 20px 650px 20px 50px;
+}
+
+/* Styles for ReviewItem.jsx */
 .review {
-  height: 50vh;
+  height: 30vh;
   display: grid;
   grid-template-columns: 1fr 15fr;
   grid-template-rows: 1fr 1fr 9fr;
@@ -14,8 +21,7 @@
     "image name"
     "image date"
     "desc desc";
-  margin: 30px 300px 0px 300px;
-  padding: 30px;
+  margin: 30px 650px 0px 50px;
 }
 
 .image {
@@ -33,7 +39,6 @@
 .name {
   display: flex;
   grid-area: name;
-  color: rgb(72, 72, 72);
   font-size: 16px;
   font-weight: 600;
   line-height: 1.6em;
@@ -47,8 +52,7 @@
 .date {
   display: flex;
   grid-area: date;
-  color: rgb(72, 72, 72);
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6em;
   margin-left: 1.5em;
 }
@@ -59,7 +63,6 @@
 
 .desc {
   grid-area: desc;
-  color: rgb(72, 72, 72);
   font-size: 16px;
   line-height: 1.6em;
   margin-top: 30px;
@@ -67,4 +70,162 @@
 
 .read-more {
   color: #00A699;
+}
+
+/* Styles for Header.jsx */
+.header-container {
+  margin: 30px 0px 0px 50px;
+}
+
+.header-title {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.total-rating-div {
+  display: inline;
+}
+
+.star {
+  margin: 5px 0;
+  position: relative;
+  display: inline-block;
+  color: #00A699;
+  width: 0px;
+  height: 0px;
+  border-right: 10px solid transparent;
+  border-bottom: 7px solid #00A699;
+  border-left: 10px solid transparent;
+  transform: rotate(35deg);
+}
+
+.star:before {
+  border-bottom: 8px solid #00A699;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -4.5px;
+  left: -6.5px;
+  display: inline-block;
+  content: '';
+  transform: rotate(-35deg);
+}
+
+.star:after {
+  position: absolute;
+  display: inline-block;
+  color: #00A699;
+  top: 0.3px;
+  left: -10.5px;
+  width: 0px;
+  height: 0px;
+  border-right: 10px solid transparent;
+  border-bottom: 7px solid #00A699;
+  border-left: 10px solid transparent;
+  transform: rotate(-70deg);
+  content: '';
+}
+
+.total-rating {
+  font-weight: bold;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.num-reviews-div {
+  display: inline;
+  font-weight: bold;
+  margin-left: 40px;
+  font-size: 18px;
+}
+
+.num-reviews-text {
+  font-weight: normal;
+}
+
+/* Styles for Ratings.jsx */
+.ratings-container {
+  height: 15vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "checkin communication"
+    "accuracy cleanliness"
+    "location value";
+  margin: 30px 650px 0px 50px;
+}
+
+.rating-container {
+  position: relative;
+}
+
+.rating-title {
+  position: relative;
+}
+
+.rating-bar {
+  display: inline-block;
+  position: relative;
+}
+
+.rating-bar-bg {
+  display: inline-block;
+  margin: -8px 10px 0px 60px;
+  width: 100px;
+  height: 5px;
+  background: rgb(230, 230, 230);
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.rating-bar-overlay {
+  display: inline-block;
+  margin: -8px 10px 0px 60px;
+  height: 5px;
+  background: #00A699;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.rating-stat {
+  position: relative;
+  font-weight: 600;
+  margin-left: 180px;
+}
+
+.checkin {
+  grid-area: checkin;
+}
+
+.communication {
+  grid-area: communication;
+  margin-left:auto;
+  margin-right:0;
+}
+
+.accuracy {
+  grid-area: accuracy;
+}
+
+.cleanliness {
+  grid-area: cleanliness;
+  margin-left:auto;
+  margin-right:0;
+}
+
+.location {
+  grid-area: location;
+}
+
+.value {
+  grid-area: value;
+  margin-left:auto;
+  margin-right:0;
 }
