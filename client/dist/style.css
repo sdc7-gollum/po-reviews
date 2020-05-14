@@ -20,7 +20,7 @@
 
 /* Styles for ReviewItem.jsx */
 .review {
-  height: 10.2em;
+  height: 10em;
   display: grid;
   grid-template-columns: 1fr 15fr;
   grid-template-rows: 1fr 1fr 10fr;
