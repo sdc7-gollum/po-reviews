@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import Ratings from './components/Ratings';
 import ReviewList from './components/ReviewList';
+import Pagination from './components/Pagination';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       reviews: [],
+      currentPage: 1,
     };
+    this.paginate = this.paginate.bind(this);
   }
 
   componentDidMount() {
@@ -58,15 +61,23 @@ class App extends Component {
     return ratings;
   }
 
+  paginate(page) {
+    this.setState({
+      currentPage: page,
+    });
+  }
+
   render() {
-    const { reviews } = this.state;
+    const { reviews, currentPage } = this.state;
+    const currentReviews = reviews.slice(currentPage * 7 - 7, currentPage * 7);
     return (
-      <div>
+      <div className="module">
         <Header totalRating={this.getTotalRating()} numReviews={reviews.length} />
         <hr className="divider" />
         <Ratings categoryRatings={this.getCategoryRatings()} />
         <hr className="divider" />
-        <ReviewList reviews={reviews} />
+        <ReviewList reviews={currentReviews} />
+        <Pagination numReviews={reviews.length} paginate={this.paginate} />
       </div>
     );
   }
