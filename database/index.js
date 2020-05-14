@@ -12,12 +12,12 @@ db.on('err', console.error.bind(console, 'connection error:'));
 db.once('open', () => console.log('Database connected...'));
 
 const RoomSchema = new Schema({
-  _id: { type: Number, index: true },
+  id: { type: Number, index: true },
   reviews: Array,
 });
 
 const Room = mongoose.model('Room', RoomSchema);
 
-const getReviews = (id) => Room.find({ _id: id });
+const getReviews = (id) => Room.find({ id });
 
 module.exports = { Room, getReviews };
