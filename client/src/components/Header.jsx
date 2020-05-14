@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const Header = ({ totalRating, numReviews }) => (
   <div className="header-container">
@@ -14,10 +13,5 @@ const Header = ({ totalRating, numReviews }) => (
     </div>
   </div>
 );
-
-Header.propTypes = {
-  totalRating: PropTypes.number.isRequired,
-  numReviews: PropTypes.number.isRequired,
-};
 
 export default Header;

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 class ReviewItem extends Component {
   constructor(props) {
@@ -55,13 +54,5 @@ class ReviewItem extends Component {
     );
   }
 }
-
-ReviewItem.propTypes = {
-  review: PropTypes.object.isRequired,
-  name: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  pic: PropTypes.string.isRequired,
-};
 
 export default ReviewItem;

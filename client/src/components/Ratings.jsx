@@ -1,6 +1,5 @@
 import React from 'react';
 import $ from 'jquery';
-import PropTypes from 'prop-types';
 
 const Ratings = ({ categoryRatings }) => {
   Object.keys(categoryRatings).forEach((category) => {
@@ -9,61 +8,57 @@ const Ratings = ({ categoryRatings }) => {
   });
 
   return (
-    <div className="ratings-container checkin">
-      <div className="rating-container">
-        <span className="rating-title">Check-in</span>
+    <div className="ratings-container">
+      <span className="rating-title checkin-title">Check-in</span>
+      <span className="checkin-rating">
         <span className="rating-bar">
           <span className="rating-bar-bg" />
           <span className="rating-bar-overlay checkin-bar" />
         </span>
         <span className="rating-stat">{categoryRatings.checkin}</span>
-      </div>
-      <div className="rating-container communication">
-        <span className="rating-title">Communication</span>
+      </span>
+      <span className="rating-title communication-title">Communication</span>
+      <span className="communication-rating">
         <span className="rating-bar">
           <span className="rating-bar-bg" />
           <span className="rating-bar-overlay communication-bar" />
         </span>
         <span className="rating-stat">{categoryRatings.communication}</span>
-      </div>
-      <div className="rating-container accuracy">
-        <span className="rating-title">Accuracy</span>
+      </span>
+      <span className="rating-title accuracy-title">Accuracy</span>
+      <span className="accuracy-rating">
         <span className="rating-bar">
           <span className="rating-bar-bg" />
           <span className="rating-bar-overlay accuracy-bar" />
         </span>
         <span className="rating-stat">{categoryRatings.accuracy}</span>
-      </div>
-      <div className="rating-container cleanliness">
-        <span className="rating-title">Cleanliness</span>
+      </span>
+      <span className="rating-title cleanliness-title">Cleanliness</span>
+      <span className="cleanliness-rating">
         <span className="rating-bar">
           <span className="rating-bar-bg" />
           <span className="rating-bar-overlay cleanliness-bar" />
         </span>
         <span className="rating-stat">{categoryRatings.cleanliness}</span>
-      </div>
-      <div className="rating-container location">
-        <span className="rating-title">Location</span>
+      </span>
+      <span className="rating-title location-title">Location</span>
+      <span className="location-rating">
         <span className="rating-bar">
           <span className="rating-bar-bg" />
           <span className="rating-bar-overlay location-bar" />
         </span>
         <span className="rating-stat">{categoryRatings.location}</span>
-      </div>
-      <div className="rating-container value">
-        <span className="rating-title">Value</span>
+      </span>
+      <span className="rating-title value-title">Value</span>
+      <span className="value-rating">
         <span className="rating-bar">
           <span className="rating-bar-bg" />
           <span className="rating-bar-overlay value-bar" />
         </span>
         <span className="rating-stat">{categoryRatings.value}</span>
-      </div>
+      </span>
     </div>
   );
-};
-
-Ratings.propTypes = {
-  categoryRatings: PropTypes.object.isRequired,
 };
 
 export default Ratings;

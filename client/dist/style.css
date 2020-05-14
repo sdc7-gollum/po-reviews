@@ -6,40 +6,47 @@
   box-sizing: border-box;
 }
 
+.module {
+  width: 40em;
+  height: auto;
+  margin: 0 10em;
+  position: relative;
+}
+
 .divider {
   border: 0.5px solid rgb(230, 230, 230);
-  margin: 20px 650px 20px 50px;
+  margin: 20px 0px;
 }
 
 /* Styles for ReviewItem.jsx */
 .review {
-  height: 30vh;
+  height: 10em;
   display: grid;
   grid-template-columns: 1fr 15fr;
-  grid-template-rows: 1fr 1fr 9fr;
+  grid-template-rows: 1fr 1fr 10fr;
   grid-template-areas:
     "image name"
     "image date"
     "desc desc";
-  margin: 30px 650px 0px 50px;
+  margin: 2em 0 0 0;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
 }
 
 .image {
   grid-area: image;
-  width: 50px;
-  height: 50px;
+  width: 2.7em;
+  height: 2.7em;
   position: relative;
-  overflow: hidden;
   border-radius: 50%;
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .name {
   display: flex;
   grid-area: name;
-  font-size: 16px;
+  font-size: 0.9em;
   font-weight: 600;
   line-height: 1.6em;
   margin-left: 1.5em;
@@ -52,7 +59,7 @@
 .date {
   display: flex;
   grid-area: date;
-  font-size: 14px;
+  font-size: 0.8em;
   line-height: 1.6em;
   margin-left: 1.5em;
 }
@@ -63,9 +70,12 @@
 
 .desc {
   grid-area: desc;
-  font-size: 16px;
+  font-size: 0.9em;
   line-height: 1.6em;
-  margin-top: 30px;
+  margin-top: 20px;
+  position: relative;
+  float: left;
+  align-self: stretch;
 }
 
 .read-more {
@@ -74,12 +84,13 @@
 
 /* Styles for Header.jsx */
 .header-container {
-  margin: 30px 0px 0px 50px;
+  margin: 30px 0px 0px 0px;
 }
 
 .header-title {
   font-weight: 600;
-  font-size: 24px;
+  font-size: 1.3em;
+  margin-bottom: 30px;
 }
 
 .total-rating-div {
@@ -131,14 +142,14 @@
 .total-rating {
   font-weight: bold;
   margin-left: 10px;
-  font-size: 18px;
+  font-size: 1.0em;
 }
 
 .num-reviews-div {
   display: inline;
   font-weight: bold;
   margin-left: 40px;
-  font-size: 18px;
+  font-size: 1.0em;
 }
 
 .num-reviews-text {
@@ -147,23 +158,20 @@
 
 /* Styles for Ratings.jsx */
 .ratings-container {
-  height: 15vh;
+  height: 7em;
+  width: 40%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr 2fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
-    "checkin communication"
-    "accuracy cleanliness"
-    "location value";
-  margin: 30px 650px 0px 50px;
-}
-
-.rating-container {
-  position: relative;
+    "checkin-title checkin-rating communication-title communication-rating"
+    "accuracy-title accuracy-rating cleanliness-title cleanliness-rating"
+    "location-title location-rating value-title value-rating";
+  align-items: center;
 }
 
 .rating-title {
-  position: relative;
+  font-size: 0.9em;
 }
 
 .rating-bar {
@@ -195,37 +203,84 @@
 }
 
 .rating-stat {
-  position: relative;
   font-weight: 600;
   margin-left: 180px;
+  font-size: 0.9em;
 }
 
-.checkin {
-  grid-area: checkin;
+.checkin-title {
+  grid-area: checkin-title;
 }
 
-.communication {
-  grid-area: communication;
-  margin-left:auto;
-  margin-right:0;
+.communication-title {
+  grid-area: communication-title;
 }
 
-.accuracy {
-  grid-area: accuracy;
+.accuracy-title {
+  grid-area: accuracy-title;
 }
 
-.cleanliness {
-  grid-area: cleanliness;
-  margin-left:auto;
-  margin-right:0;
+.cleanliness-title {
+  grid-area: cleanliness-title;
 }
 
-.location {
-  grid-area: location;
+.location-title {
+  grid-area: location-title;
 }
 
-.value {
-  grid-area: value;
-  margin-left:auto;
-  margin-right:0;
+.value-title {
+  grid-area: value-title;
+}
+
+.checkin-rating {
+  grid-area: checkin-rating;
+  margin-right: 3em;
+}
+
+.communication-rating {
+  grid-area: communication-rating;
+}
+
+.accuracy-rating {
+  grid-area: accuracy-rating;
+}
+
+.cleanliness-rating {
+  grid-area: cleanliness-rating;
+}
+
+.location-rating {
+  grid-area: location-rating;
+}
+
+.value-rating {
+  grid-area: value-rating;
+}
+
+/* Styles for Pagination */
+.pagination-container {
+  margin: 3em auto;
+  width: 90%;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.page-button {
+  float: left;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: small;
+  color: grey;
+  border: none;
+  font-weight: normal;
+}
+
+.page-button:focus {
+  outline: 0;
+}
+
+.page-button:hover:not(.active) {
+  text-decoration: underline;
 }

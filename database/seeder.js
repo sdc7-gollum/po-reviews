@@ -4,9 +4,7 @@ const db = require('./index');
 
 const generateReviews = () => {
   const reviews = [];
-  const numReviews = Math.floor(Math.random() * 470 + 30);
-  // originally implemented method below via Math.floor(Math.random() * 5 + 1),
-  // but refactored to better reflect reality
+  const numReviews = Math.floor(Math.random() * 40 + 30);
   const getRandomRating = () => {
     const options = [5, 5, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3, 2, 2, 1];
     return options[Math.floor(Math.random() * 15)];
@@ -30,5 +28,5 @@ const generateReviews = () => {
 };
 
 for (let i = 0; i < 100; i += 1) {
-  db.Room.collection.insertOne({ _id: i + 1, reviews: generateReviews() });
+  db.Room.collection.insertOne({ id: i + 1, reviews: generateReviews() });
 }
