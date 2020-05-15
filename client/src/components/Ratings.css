@@ -1,0 +1,105 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(72, 72, 72);
+  box-sizing: border-box;
+}
+
+.ratingsContainer {
+  height: 7em;
+  width: 40%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "checkin-title checkin-rating communication-title communication-rating"
+    "accuracy-title accuracy-rating cleanliness-title cleanliness-rating"
+    "location-title location-rating value-title value-rating";
+  align-items: center;
+}
+
+.ratingTitle {
+  font-size: 0.9em;
+}
+
+.ratingBar {
+  display: inline-block;
+  position: relative;
+}
+
+.ratingBarBG {
+  display: inline-block;
+  margin: -8px 10px 0px 60px;
+  width: 100px;
+  height: 5px;
+  background: rgb(230, 230, 230);
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ratingBarOverlay {
+  display: inline-block;
+  margin: -8px 10px 0px 60px;
+  height: 5px;
+  background: #00A699;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ratingStat {
+  font-weight: 600;
+  margin-left: 180px;
+  font-size: 0.9em;
+}
+
+.checkinTitle {
+  grid-area: checkin-title;
+}
+
+.communicationTitle {
+  grid-area: communication-title;
+}
+
+.accuracyTitle {
+  grid-area: accuracy-title;
+}
+
+.cleanlinessTitle {
+  grid-area: cleanliness-title;
+}
+
+.locationTitle {
+  grid-area: location-title;
+}
+
+.valueTitle {
+  grid-area: value-title;
+}
+
+.checkinRating {
+  grid-area: checkin-rating;
+  margin-right: 3em;
+}
+
+.communicationRating {
+  grid-area: communication-rating;
+}
+
+.accuracyRating {
+  grid-area: accuracy-rating;
+}
+
+.cleanlinessRating {
+  grid-area: cleanliness-rating;
+}
+
+.locationRating {
+  grid-area: location-rating;
+}
+
+.valueRating {
+  grid-area: value-rating;
+}

@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Ratings from './components/Ratings';
 import ReviewList from './components/ReviewList';
 import Pagination from './components/Pagination';
+import styles from './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -71,11 +72,11 @@ class App extends Component {
     const { reviews, currentPage } = this.state;
     const currentReviews = reviews.slice(currentPage * 7 - 7, currentPage * 7);
     return (
-      <div className="module">
+      <div className={styles.wrapper}>
         <Header totalRating={this.getTotalRating()} numReviews={reviews.length} />
-        <hr className="divider" />
+        <hr className={styles.divider} />
         <Ratings categoryRatings={this.getCategoryRatings()} />
-        <hr className="divider" />
+        <hr className={styles.divider} />
         <ReviewList reviews={currentReviews} />
         <Pagination numReviews={reviews.length} paginate={this.paginate} />
       </div>

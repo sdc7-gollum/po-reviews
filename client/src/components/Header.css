@@ -1,0 +1,74 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(72, 72, 72);
+  box-sizing: border-box;
+}
+
+.headerTitle {
+  font-weight: 600;
+  font-size: 1.3em;
+  margin-bottom: 30px;
+}
+
+.totalRatingDiv {
+  display: inline;
+}
+
+.star {
+  margin: 5px 0;
+  position: relative;
+  display: inline-block;
+  color: #00A699;
+  width: 0px;
+  height: 0px;
+  border-right: 10px solid transparent;
+  border-bottom: 7px solid #00A699;
+  border-left: 10px solid transparent;
+  transform: rotate(35deg);
+}
+
+.star:before {
+  border-bottom: 8px solid #00A699;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -4.5px;
+  left: -6.5px;
+  display: inline-block;
+  content: '';
+  transform: rotate(-35deg);
+}
+
+.star:after {
+  position: absolute;
+  display: inline-block;
+  color: #00A699;
+  top: 0.3px;
+  left: -10.5px;
+  width: 0px;
+  height: 0px;
+  border-right: 10px solid transparent;
+  border-bottom: 7px solid #00A699;
+  border-left: 10px solid transparent;
+  transform: rotate(-70deg);
+  content: '';
+}
+
+.totalRating {
+  font-weight: bold;
+  margin-left: 10px;
+  font-size: 1.0em;
+}
+
+.numReviewsDiv {
+  display: inline;
+  font-weight: bold;
+  margin-left: 40px;
+  font-size: 1.0em;
+}
+
+.numReviewsText {
+  font-weight: normal;
+}

@@ -1,0 +1,66 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(72, 72, 72);
+  box-sizing: border-box;
+}
+
+.review {
+  display: grid;
+  grid-template-columns: 1fr 15fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "image name"
+    "image date"
+    "desc desc";
+  margin: 2em 0 0 0;
+  position: relative;
+  align-items: center;
+}
+
+.image {
+  grid-area: image;
+  width: 2.7em;
+  height: 2.7em;
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+}
+
+.name {
+  display: flex;
+  grid-area: name;
+  font-size: 0.9em;
+  font-weight: 600;
+  line-height: 1.6em;
+  margin-left: 1.5em;
+}
+
+.name span {
+  align-self: flex-end;
+}
+
+.date {
+  display: flex;
+  grid-area: date;
+  font-size: 0.8em;
+  line-height: 1.6em;
+  margin-left: 1.5em;
+}
+
+.date span {
+  align-self: flex-start;
+}
+
+.desc {
+  grid-area: desc;
+  font-size: 0.9em;
+  line-height: 1.6em;
+  margin-top: 20px;
+  position: relative;
+  float: left;
+  align-self: stretch;
+}
+
+.readMore {
+  color: #00A699;
+}

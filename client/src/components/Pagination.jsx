@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import styles from './Pagination.css';
 
 const Pagination = ({ numReviews, paginate }) => {
   const pages = [];
@@ -11,7 +12,7 @@ const Pagination = ({ numReviews, paginate }) => {
   const onClickHandler = (e) => {
     e.preventDefault();
     const currentPage = e.target.value;
-    $(`.page-button-${currentPage}`).css({
+    $(`.pageButton-${currentPage}`).css({
       color: '#00A699',
       border: 'none',
       'font-weight': 'bold',
@@ -20,7 +21,7 @@ const Pagination = ({ numReviews, paginate }) => {
       if (pages[i] === Number(currentPage)) {
         continue;
       } else {
-        $(`.page-button-${pages[i]}`).css({
+        $(`.pageButton-${pages[i]}`).css({
           color: 'grey',
           border: 'none',
           'font-weight': 'normal',
@@ -31,11 +32,11 @@ const Pagination = ({ numReviews, paginate }) => {
   };
 
   return (
-    <div className="pagination-container">
+    <div className={styles.wrapper}>
       <ul>
         {pages.map((page) => (
-          <li key={page} className="pagination">
-            <input type="button" className={`page-button-${page} page-button`} onClick={(e) => onClickHandler(e)} value={page} />
+          <li key={page} className={styles.pagination}>
+            <input type="button" className={`pageButton-${page} ${styles.pageButton}`} onClick={(e) => onClickHandler(e)} value={page} />
           </li>
         ))}
       </ul>

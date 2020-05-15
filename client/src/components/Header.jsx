@@ -1,15 +1,16 @@
 import React from 'react';
+import styles from './Header.css';
 
 const Header = ({ totalRating, numReviews }) => (
-  <div className="header-container">
-    <h1 className="header-title">Reviews</h1>
-    <div className="total-rating-div">
-      <span className="star" />
-      <span className="total-rating">{totalRating}</span>
+  <div className={styles.headerContainer}>
+    <h1 className={styles.headerTitle}>Reviews</h1>
+    <div className={styles.totalRatingDiv}>
+      <span className={styles.star} />
+      <span className={styles.totalRating}>{totalRating}</span>
     </div>
-    <div className="num-reviews-div">
+    <div className={styles.numReviewsDiv}>
       <span>{numReviews}</span>
-      <span className="num-reviews-text"> reviews</span>
+      <span className={styles.numReviewsText}> reviews</span>
     </div>
   </div>
 );
