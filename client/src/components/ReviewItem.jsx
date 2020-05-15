@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './ReviewItem.css';
 
 class ReviewItem extends Component {
   constructor(props) {
@@ -34,19 +35,19 @@ class ReviewItem extends Component {
     const { name, body, pic } = review;
     const { shortened } = this.state;
     return (
-      <div className="review">
-        <img src={pic} alt="test" className="image" />
-        <div className="name">
+      <div className={styles.review}>
+        <img src={pic} alt="test" className={styles.image} />
+        <div className={styles.name}>
           <span>{name}</span>
         </div>
-        <div className="date">
+        <div className={styles.date}>
           <span>{this.formatDate()}</span>
         </div>
-        <div className="desc">
+        <div className={styles.desc}>
           {shortened ? (
             <div>
               <span>{this.getShortenedDesc()}</span>
-              <span className="read-more" onClick={(e) => this.onClickHandler(e)}>Read More</span>
+              <span className={styles.readMore} onClick={(e) => this.onClickHandler(e)}>Read More</span>
             </div>
           ) : <span>{body}</span> }
         </div>

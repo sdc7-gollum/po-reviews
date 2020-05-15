@@ -1,61 +1,62 @@
 import React from 'react';
 import $ from 'jquery';
+import styles from './Ratings.css';
 
 const Ratings = ({ categoryRatings }) => {
   Object.keys(categoryRatings).forEach((category) => {
     const barLength = categoryRatings[category] * 20;
-    $(`.${category}-bar`).css('width', barLength);
+    $(`.${category}Bar`).css('width', barLength);
   });
 
   return (
-    <div className="ratings-container">
-      <span className="rating-title checkin-title">Check-in</span>
-      <span className="checkin-rating">
-        <span className="rating-bar">
-          <span className="rating-bar-bg" />
-          <span className="rating-bar-overlay checkin-bar" />
+    <div className={styles.ratingsContainer}>
+      <span className={`${styles.ratingTitle} ${styles.checkinTitle}`}>Check-in</span>
+      <span className={styles.checkinRating}>
+        <span className={styles.ratingBar}>
+          <span className={styles.ratingBarBG} />
+          <span className={`${styles.ratingBarOverlay} checkinBar`} />
         </span>
-        <span className="rating-stat">{categoryRatings.checkin}</span>
+        <span className={styles.ratingStat}>{categoryRatings.checkin}</span>
       </span>
-      <span className="rating-title communication-title">Communication</span>
-      <span className="communication-rating">
-        <span className="rating-bar">
-          <span className="rating-bar-bg" />
-          <span className="rating-bar-overlay communication-bar" />
+      <span className={`${styles.ratingTitle} ${styles.communicationTitle}`}>Communication</span>
+      <span className={styles.communicationRating}>
+        <span className={styles.ratingBar}>
+          <span className={styles.ratingBarBG} />
+          <span className={`${styles.ratingBarOverlay} communicationBar`} />
         </span>
-        <span className="rating-stat">{categoryRatings.communication}</span>
+        <span className={styles.ratingStat}>{categoryRatings.communication}</span>
       </span>
-      <span className="rating-title accuracy-title">Accuracy</span>
-      <span className="accuracy-rating">
-        <span className="rating-bar">
-          <span className="rating-bar-bg" />
-          <span className="rating-bar-overlay accuracy-bar" />
+      <span className={`${styles.ratingTitle} ${styles.accuracyTitle}`}>Accuracy</span>
+      <span className={styles.accuracyRating}>
+        <span className={styles.ratingBar}>
+          <span className={styles.ratingBarBG} />
+          <span className={`${styles.ratingBarOverlay} accuracyBar`} />
         </span>
-        <span className="rating-stat">{categoryRatings.accuracy}</span>
+        <span className={styles.ratingStat}>{categoryRatings.accuracy}</span>
       </span>
-      <span className="rating-title cleanliness-title">Cleanliness</span>
-      <span className="cleanliness-rating">
-        <span className="rating-bar">
-          <span className="rating-bar-bg" />
-          <span className="rating-bar-overlay cleanliness-bar" />
+      <span className={`${styles.ratingTitle} ${styles.cleanlinessTitle}`}>Cleanliness</span>
+      <span className={styles.cleanlinessRating}>
+        <span className={styles.ratingBar}>
+          <span className={styles.ratingBarBG} />
+          <span className={`${styles.ratingBarOverlay} cleanlinessBar`} />
         </span>
-        <span className="rating-stat">{categoryRatings.cleanliness}</span>
+        <span className={styles.ratingStat}>{categoryRatings.cleanliness}</span>
       </span>
-      <span className="rating-title location-title">Location</span>
-      <span className="location-rating">
-        <span className="rating-bar">
-          <span className="rating-bar-bg" />
-          <span className="rating-bar-overlay location-bar" />
+      <span className={`${styles.ratingTitle} ${styles.locationTitle}`}>Location</span>
+      <span className={styles.locationRating}>
+        <span className={styles.ratingBar}>
+          <span className={styles.ratingBarBG} />
+          <span className={`${styles.ratingBarOverlay} locationBar`} />
         </span>
-        <span className="rating-stat">{categoryRatings.location}</span>
+        <span className={styles.ratingStat}>{categoryRatings.location}</span>
       </span>
-      <span className="rating-title value-title">Value</span>
-      <span className="value-rating">
-        <span className="rating-bar">
-          <span className="rating-bar-bg" />
-          <span className="rating-bar-overlay value-bar" />
+      <span className={`${styles.ratingTitle} ${styles.valueTitle}`}>Value</span>
+      <span className={styles.valueRating}>
+        <span className={styles.ratingBar}>
+          <span className={styles.ratingBarBG} />
+          <span className={`${styles.ratingBarOverlay} valueBar`} />
         </span>
-        <span className="rating-stat">{categoryRatings.value}</span>
+        <span className={styles.ratingStat}>{categoryRatings.value}</span>
       </span>
     </div>
   );
