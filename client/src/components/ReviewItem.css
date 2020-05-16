@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+.wrapper {
+  width: 40em;
+  height: auto;
+  position: relative;
+}
+
 .review {
   display: grid;
   grid-template-columns: 1fr 15fr;
@@ -63,4 +69,9 @@
 
 .readMore {
   color: #00A699;
+}
+
+.divider {
+  border: 0.5px solid rgb(230, 230, 230);
+  margin: 2em 0px;
 }

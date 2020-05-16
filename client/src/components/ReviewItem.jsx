@@ -35,22 +35,25 @@ class ReviewItem extends Component {
     const { name, body, pic } = review;
     const { shortened } = this.state;
     return (
-      <div className={styles.review}>
-        <img src={pic} alt="test" className={styles.image} />
-        <div className={styles.name}>
-          <span>{name}</span>
+      <div className="wrapper">
+        <div className={styles.review}>
+          <img src={pic} alt="test" className={styles.image} />
+          <div className={styles.name}>
+            <span>{name}</span>
+          </div>
+          <div className={styles.date}>
+            <span>{this.formatDate()}</span>
+          </div>
+          <div className={styles.desc}>
+            {shortened ? (
+              <div>
+                <span>{this.getShortenedDesc()}</span>
+                <span className={styles.readMore} onClick={(e) => this.onClickHandler(e)}>Read More</span>
+              </div>
+            ) : <span>{body}</span> }
+          </div>
         </div>
-        <div className={styles.date}>
-          <span>{this.formatDate()}</span>
-        </div>
-        <div className={styles.desc}>
-          {shortened ? (
-            <div>
-              <span>{this.getShortenedDesc()}</span>
-              <span className={styles.readMore} onClick={(e) => this.onClickHandler(e)}>Read More</span>
-            </div>
-          ) : <span>{body}</span> }
-        </div>
+        <hr className={styles.divider} />
       </div>
     );
   }

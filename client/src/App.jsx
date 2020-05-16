@@ -57,7 +57,11 @@ class App extends Component {
     });
     for (let i = 0; i < Object.keys(ratings).length; i += 1) {
       const category = Object.keys(ratings)[i];
-      ratings[category] = (ratings[category] / reviews.length).toFixed(1);
+      if (ratings[category] === 0 || reviews.length === 0) {
+        ratings[category] = '0.0';
+      } else {
+        ratings[category] = (ratings[category] / reviews.length).toFixed(1);
+      }
     }
     return ratings;
   }
@@ -76,9 +80,8 @@ class App extends Component {
         <Header totalRating={this.getTotalRating()} numReviews={reviews.length} />
         <hr className={styles.divider} />
         <Ratings categoryRatings={this.getCategoryRatings()} />
-        <hr className={styles.divider} />
         <ReviewList reviews={currentReviews} />
-        <Pagination numReviews={reviews.length} paginate={this.paginate} />
+        <Pagination numReviews={reviews.length} paginate={this.paginate} currentPage={currentPage} />
       </div>
     );
   }
