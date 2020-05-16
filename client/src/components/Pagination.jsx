@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 import styles from './Pagination.css';
 
 const Pagination = ({ numReviews, paginate, currentPage }) => {
