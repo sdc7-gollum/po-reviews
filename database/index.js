@@ -7,9 +7,9 @@ mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/review
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-const db = mongoose.connection;
-db.on('err', console.error.bind(console, 'connection error:'));
-db.once('open', () => console.log('Database connected...'));
+const connection = mongoose.connection;
+connection.on('err', console.error.bind(console, 'connection error:'));
+connection.once('open', () => console.log('Database connected...'));
 
 const RoomSchema = new Schema({
   id: { type: Number, index: true },
@@ -20,4 +20,4 @@ const Room = mongoose.model('Room', RoomSchema);
 
 const getReviews = (id) => Room.find({ id });
 
-module.exports = { Room, getReviews };
+module.exports = { connection, Room, getReviews };

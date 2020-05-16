@@ -4,25 +4,17 @@
   box-sizing: border-box;
 }
 
-.wrapper {
-  width: 100%;
-  text-align: center;
-}
-
 .pagination {
   display: inline-block;
-  margin: 0 auto;
-  padding-top: 2em;
-  width: 10%;
+  padding: 0.5em 2em 3em 0em;
   vertical-align: middle;
-  line-height: initial;
 }
 
 .pageButton {
   float: left;
   text-decoration: none;
   font-size: small;
-  color: grey;
+  font-weight: bold;
   border: none;
   font-weight: normal;
 }
@@ -33,4 +25,22 @@
 
 .pageButton:hover:not(.active) {
   text-decoration: underline;
+}
+
+.pageButtonClicked {
+  color: white;
+  background-color: #00A699;
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  text-align: center;
+}
+
+.pageButtonUnclicked {
+  color: #00A699;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  text-align: center;
 }

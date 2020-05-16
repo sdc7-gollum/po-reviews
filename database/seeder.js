@@ -6,8 +6,8 @@ const generateReviews = () => {
   const reviews = [];
   const numReviews = Math.floor(Math.random() * 40 + 30);
   const getRandomRating = () => {
-    const options = [5, 5, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3, 2, 2, 1];
-    return options[Math.floor(Math.random() * 15)];
+    const options = [5, 5, 5, 5, 5, 4, 4, 4, 4, 3, 2, 1];
+    return options[Math.floor(Math.random() * 12)];
   };
   for (let i = 0; i < numReviews; i += 1) {
     const review = {
@@ -27,6 +27,16 @@ const generateReviews = () => {
   return reviews;
 };
 
+const data = [];
+
 for (let i = 0; i < 100; i += 1) {
-  db.Room.collection.insertOne({ id: i + 1, reviews: generateReviews() });
+  data.push({ id: i + 1, reviews: generateReviews() });
 }
+
+db.Room.collection.insertMany(data, (err) => {
+  if (err) {
+    console.log(`Error while seeding the database: ${err}`);
+  }
+  db.connection.close();
+  console.log('DB successfully seeded and now closing...');
+});
