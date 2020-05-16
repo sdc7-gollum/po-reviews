@@ -35,7 +35,7 @@ class ReviewItem extends Component {
     const { name, body, pic } = review;
     const { shortened } = this.state;
     return (
-      <div className="wrapper">
+      <div className={styles.wrapper}>
         <div className={styles.review}>
           <img src={pic} alt="test" className={styles.image} />
           <div className={styles.name}>
