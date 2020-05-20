@@ -7,7 +7,7 @@ mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/review
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-const connection = mongoose.connection;
+const { connection } = mongoose;
 connection.on('err', console.error.bind(console, 'connection error:'));
 connection.once('open', () => console.log('Database connected...'));
 
