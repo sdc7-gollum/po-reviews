@@ -41,6 +41,6 @@ npm install
 | HTTP VERB | Endpoint | Action |
 | --- | --- | --- |
 | **POST** | /api/reviews/ | *CREATE* new item in db |
-| **GET** | /api/reviews/:id | *READ* new item in db |
-| **PATCH** | /api/reviews/:id | *UPDATE* new item in db |
+| **GET** | /api/reviews/:id | *READ* item in db |
+| **PUT** | /api/reviews/:id | *UPDATE* item in db |
 | **DELETE** | /api/reviews/:id | *DELETE* item in db |

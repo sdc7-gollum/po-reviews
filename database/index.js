@@ -18,6 +18,14 @@ const RoomSchema = new Schema({
 
 const Room = mongoose.model('Room', RoomSchema);
 
+const postReviews = (reqbody) => {
+  const newRoom = new Room(reqbody);
+  newRoom.save();
+};
 const getReviews = (id) => Room.find({ id });
+const putReviews = (id, reqbody) => Room.findByIdAndUpdate(id, reqbody, { new: true });
+const deleteReviews = (id) => Room.findByIdandDelete(id);
 
-module.exports = { connection, Room, getReviews };
+module.exports = {
+  connection, Room, postReviews, getReviews, putReviews, deleteReviews,
+};
