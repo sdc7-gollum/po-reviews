@@ -25,3 +25,6 @@ client/dist/bundle.js
 
 # Sensitive information
 .env
+
+#csv
+reviews.csv
