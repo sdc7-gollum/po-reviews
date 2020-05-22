@@ -15,7 +15,10 @@ function writeTenMillionReviews(writer, encoding, callback) {
     do {
       i -= 1;
       id += 1;
-      const numReviews = Math.floor(Math.random() * 3 + 3);
+      let numReviews = Math.floor(Math.random() * 3 + 3);
+      if (id > 9999900) {
+        numReviews = Math.floor(Math.random() * 50 + 25);
+      }
       const getRandomRating = () => {
         const options = [5, 5, 5, 5, 5, 4, 4, 4, 4, 3, 2, 1];
         return options[Math.floor(Math.random() * 12)];
@@ -48,5 +51,5 @@ function writeTenMillionReviews(writer, encoding, callback) {
 
 writeTenMillionReviews(writeReviews, 'utf-8', () => {
   writeReviews.end();
-  console.log('csv built');
+  console.log('csv complete!');
 });
