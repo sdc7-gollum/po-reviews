@@ -8,6 +8,7 @@
   "scripts": {
     "build": "webpack",
     "build:dev": "webpack --watch",
+    "csv": "node --max-old-space-size=12288 database/dataGen.js",
     "seed": "node database/seeder.js",
     "start": "node server",
     "start:dev": "nodemon server -i client -w server",
