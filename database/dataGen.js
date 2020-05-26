@@ -4,7 +4,7 @@ const imageOptions = require('./imageOptions');
 
 
 const writeReviews = fs.createWriteStream('reviews.csv');
-writeReviews.write('id,name,pic,date,body,r_checking,r_accuracy,r_location,r_communication,r_cleanliness,r_value\n', 'utf8');
+writeReviews.write('stay_id,name,pic,date,body,r_checking,r_accuracy,r_location,r_communication,r_cleanliness,r_value\n', 'utf8');
 
 
 function writeTenMillionReviews(writer, encoding, callback) {
@@ -26,6 +26,7 @@ function writeTenMillionReviews(writer, encoding, callback) {
       for (let r = 0; r < numReviews; r += 1) {
         const name = faker.name.firstName();
         const pic = imageOptions[Math.floor(Math.random() * 40)];
+        const date = faker.date.between('2019-01-01', '2020-05-20');
         const body = faker.lorem.paragraphs();
         const rCheckin = getRandomRating();
         const rAccuracy = getRandomRating();
@@ -33,7 +34,7 @@ function writeTenMillionReviews(writer, encoding, callback) {
         const rCommunicatiom = getRandomRating();
         const rCleanliness = getRandomRating();
         const rValue = getRandomRating();
-        const data = `${id},${name},${pic},${body},${rCheckin},${rAccuracy},${rLocation},${rCommunicatiom},${rCleanliness},${rValue}\n`;
+        const data = `${id},${name},${pic},${date},${body},${rCheckin},${rAccuracy},${rLocation},${rCommunicatiom},${rCleanliness},${rValue}\n`;
         if (i === 0) {
           writer.write(data, encoding, callback);
         } else {
