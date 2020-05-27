@@ -31,6 +31,7 @@ function writeTenMillionReviews(writer, encoding, callback) {
         return `2020-${month}-${day}`;
       };
       for (let r = 0; r < numReviews; r += 1) {
+        const stayId = `${id}.${r}`;
         const name = faker.name.firstName();
         const pic = imageOptions[Math.floor(Math.random() * 40)];
         const date = getRandomDate();
@@ -41,7 +42,7 @@ function writeTenMillionReviews(writer, encoding, callback) {
         const rCommunicatiom = getRandomRating();
         const rCleanliness = getRandomRating();
         const rValue = getRandomRating();
-        const data = `${id},${name},${pic},${date},${body},${rCheckin},${rAccuracy},${rLocation},${rCommunicatiom},${rCleanliness},${rValue}\n`;
+        const data = `${stayId},${name},${pic},${date},${body},${rCheckin},${rAccuracy},${rLocation},${rCommunicatiom},${rCleanliness},${rValue}\n`;
         if (i === 0) {
           writer.write(data, encoding, callback);
         } else {
