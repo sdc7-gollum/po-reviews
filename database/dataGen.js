@@ -2,10 +2,8 @@ const faker = require('faker');
 const fs = require('fs');
 const imageOptions = require('./imageOptions');
 
-
 const writeReviews = fs.createWriteStream('reviews.csv');
-writeReviews.write('id,name,pic,date,body,r_checking,r_accuracy,r_location,r_communication,r_cleanliness,r_value\n', 'utf8');
-
+writeReviews.write('stay_id,name,pic,date,body,r_checking,r_accuracy,r_location,r_communication,r_cleanliness,r_value\n', 'utf8');
 
 function writeTenMillionReviews(writer, encoding, callback) {
   let i = 10000000;
@@ -23,17 +21,27 @@ function writeTenMillionReviews(writer, encoding, callback) {
         const options = [5, 5, 5, 5, 5, 4, 4, 4, 4, 3, 2, 1];
         return options[Math.floor(Math.random() * 12)];
       };
+      const getRandomDate = () => {
+        let day;
+        const month = Math.floor(Math.random() * 4) + 1;
+        if (month === 2) { day = Math.floor(Math.random() * 27) + 1; }
+        if (month === 1 || month === 3 || month === 5) {
+          day = Math.floor(Math.random() * 30) + 1;
+        } day = Math.floor(Math.random() * 29) + 1;
+        return `2020-${month}-${day}`;
+      };
       for (let r = 0; r < numReviews; r += 1) {
         const name = faker.name.firstName();
         const pic = imageOptions[Math.floor(Math.random() * 40)];
-        const body = faker.lorem.paragraphs();
+        const date = getRandomDate();
+        const body = `${faker.lorem.paragraph()} | ${faker.lorem.paragraph()} | ${faker.lorem.paragraph()}`;
         const rCheckin = getRandomRating();
         const rAccuracy = getRandomRating();
         const rLocation = getRandomRating();
         const rCommunicatiom = getRandomRating();
         const rCleanliness = getRandomRating();
         const rValue = getRandomRating();
-        const data = `${id},${name},${pic},${body},${rCheckin},${rAccuracy},${rLocation},${rCommunicatiom},${rCleanliness},${rValue}\n`;
+        const data = `${id},${name},${pic},${date},${body},${rCheckin},${rAccuracy},${rLocation},${rCommunicatiom},${rCleanliness},${rValue}\n`;
         if (i === 0) {
           writer.write(data, encoding, callback);
         } else {
