@@ -30,12 +30,15 @@ function writeTenMillionReviews(writer, encoding, callback) {
         } day = Math.floor(Math.random() * 29) + 1;
         return `2020-${month}-${day}`;
       };
-      for (let r = 0; r < numReviews; r += 1) {
-        const stayId = `${id}.${r}`;
+      for (let r = 1; r < numReviews + 1; r += 1) {
+        let stayId;
+        if (r < 10) {
+          stayId = `${id}.0${r}`;
+        } else stayId = `${id}.${r}`;
         const name = faker.name.firstName();
         const pic = imageOptions[Math.floor(Math.random() * 40)];
         const date = getRandomDate();
-        const body = `${faker.lorem.paragraph()} | ${faker.lorem.paragraph()} | ${faker.lorem.paragraph()}`;
+        const body = `${faker.lorem.paragraph()} ${faker.lorem.paragraph()} ${faker.lorem.paragraph()}`;
         const rCheckin = getRandomRating();
         const rAccuracy = getRandomRating();
         const rLocation = getRandomRating();

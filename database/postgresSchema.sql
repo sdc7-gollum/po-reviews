@@ -2,12 +2,12 @@ CREATE SCHEMA stays AUTHORIZATION zdeckert;
 
 CREATE TABLE reviews
 (
-  stay_id  BIGINT PRIMARY KEY,
-  name character varying(50),
-  pic character varying(255),
-  date date,
-  body varchar,
-  r_checking SMALLINT NOT NULL,
+  stay_id  NUMERIC (12,4) PRIMARY KEY,
+  name VARCHAR(50),
+  pic VARCHAR(255),
+  date DATE,
+  body VARCHAR,
+  r_checking SMALLINT,
   r_accuracy SMALLINT,
   r_location SMALLINT,
   r_communication SMALLINT,
@@ -43,6 +43,6 @@ CREATE TABLE reviews_9 PARTITION OF reviews
   FOR VALUES FROM (8000001) TO (9000001);
 
 CREATE TABLE reviews_10 PARTITION OF reviews
-  FOR VALUES FROM (9000001) TO (1000001);
+  FOR VALUES FROM (9000001) TO (10000001);
 
-COPY reviews FROM ‘/Users/zdeckert/hrr45/sdc/po-reviews/reviews.csv’ DELIMITER ‘,’ CSV HEADER;
+COPY reviews FROM '/Users/zdeckert/hrr45/sdc/po-reviews/reviews.csv' DELIMITER ',' CSV HEADER;
