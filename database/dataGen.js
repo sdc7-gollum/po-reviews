@@ -3,7 +3,7 @@ const fs = require('fs');
 const imageOptions = require('./imageOptions');
 
 const writeReviews = fs.createWriteStream('reviews.csv');
-writeReviews.write('stay_id,name,pic,date,body,r_checking,r_accuracy,r_location,r_communication,r_cleanliness,r_value\n', 'utf8');
+writeReviews.write('stay_id,name,pic,date,body,r_checkin,r_accuracy,r_location,r_communication,r_cleanliness,r_value\n', 'utf8');
 
 function writeTenMillionReviews(writer, encoding, callback) {
   let i = 10000000;
@@ -30,18 +30,22 @@ function writeTenMillionReviews(writer, encoding, callback) {
         } day = Math.floor(Math.random() * 29) + 1;
         return `2020-${month}-${day}`;
       };
-      for (let r = 0; r < numReviews; r += 1) {
+      for (let r = 1; r < numReviews + 1; r += 1) {
+        let stayId;
+        if (r < 10) {
+          stayId = `${id}.0${r}`;
+        } else stayId = `${id}.${r}`;
         const name = faker.name.firstName();
         const pic = imageOptions[Math.floor(Math.random() * 40)];
         const date = getRandomDate();
-        const body = `${faker.lorem.paragraph()} | ${faker.lorem.paragraph()} | ${faker.lorem.paragraph()}`;
+        const body = `${faker.lorem.paragraph()} ${faker.lorem.paragraph()} ${faker.lorem.paragraph()}`;
         const rCheckin = getRandomRating();
         const rAccuracy = getRandomRating();
         const rLocation = getRandomRating();
         const rCommunicatiom = getRandomRating();
         const rCleanliness = getRandomRating();
         const rValue = getRandomRating();
-        const data = `${id},${name},${pic},${date},${body},${rCheckin},${rAccuracy},${rLocation},${rCommunicatiom},${rCleanliness},${rValue}\n`;
+        const data = `${stayId},${name},${pic},${date},${body},${rCheckin},${rAccuracy},${rLocation},${rCommunicatiom},${rCleanliness},${rValue}\n`;
         if (i === 0) {
           writer.write(data, encoding, callback);
         } else {

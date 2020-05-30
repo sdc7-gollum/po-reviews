@@ -23,7 +23,7 @@ class App extends Component {
     const id = window.location.href.split('?')[1];
     fetch(`/api/reviews/${id}`)
       .then((res) => res.json())
-      .then((res) => this.setState({ reviews: res[0].reviews }))
+      .then((res) => this.setState({ reviews: res }))
       .catch((err) => console.log(err));
   }
 

@@ -1,31 +1,68 @@
 require('dotenv').config();
-const mongoose = require('mongoose');
+const { Pool } = require('pg');
 
-const { Schema } = mongoose;
-
-mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/reviews`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-const { connection } = mongoose;
-connection.on('err', console.error.bind(console, 'connection error:'));
-connection.once('open', () => console.log('Database connected...'));
-
-const RoomSchema = new Schema({
-  id: { type: Number, index: true },
-  reviews: Array,
+const pool = new Pool({
+  user: 'zdeckert',
+  host: 'localhost',
+  database: 'postgres',
+  port: 5432,
 });
 
-const Room = mongoose.model('Room', RoomSchema);
+pool.on('error', console.error.bind('connection error'));
+pool.on('connect', () => console.log('Database connected...'));
 
-const postReviews = (reqbody) => {
-  const newRoom = new Room(reqbody);
-  newRoom.save();
+const postReviews = (id, reqbody) => {
+  const queryStr = `INSERT INTO reviews
+    (stay_id, name, pic, date, body,
+    r_checking, r_accuracy, r_location,
+    r_communication, r_cleanliness, r_value)
+  VALUES
+    (${reqbody.stay_id}, ${reqbody.name}, ${reqbody.pic}, ${reqbody.date}, ${reqbody.body},
+    ${reqbody.r_checking}, ${reqbody.r_accuracy}, ${reqbody.r_location},
+    ${reqbody.r_communication}, ${reqbody.r_cleanliness}, ${reqbody.r_value});`;
+  return pool
+    .query(queryStr)
+    .then((res) => console.log(res.rows[0]))
+    .catch((e) => console.error(e.stack));
 };
-const getReviews = (id) => Room.find({ id });
-const putReviews = (id, reqbody) => Room.findByIdAndUpdate(id, reqbody, { new: true });
-const deleteReviews = (id) => Room.findByIdandDelete(id);
+
+
+const getReviews = (id) => {
+  const queryStr = `SELECT * FROM reviews WHERE stay_id BETWEEN ${id} AND ${id + 1}`;
+  return pool
+    .query(queryStr)
+    .then((res) => console.log('db response', res))
+    .catch((e) => console.error('ERROR', e.stack));
+};
+
+const putReviews = (id, reqbody) => {
+  const queryStr = `UPDATE reviews
+    SET name = ${reqbody.name},
+        pic = ${reqbody.pic},
+        date = ${reqbody.date},
+        body = ${reqbody.body},
+        r_checking =  ${reqbody.r_checking}
+        r_accuracy =  ${reqbody.r_accuracy}
+        r_location = ${reqbody.r_location}
+        r_communication = ${reqbody.r_communication}
+        r_cleanliness = ${reqbody.r_cleanliness}
+        r_value = ${reqbody.r_value},
+    WHERE
+        stay_id =  ${reqbody.stay_id};`;
+  pool
+    .query(queryStr)
+    .then((res) => console.log(res.rows[0]))
+    .catch((e) => console.error(e.stack));
+};
+
+const deleteReviews = (id) => {
+  const queryStr = `DELETE FROM reviews WHERE stay_id = ${id};`;
+  pool
+    .query(queryStr)
+    .then((res) => console.log(res.rows[0]))
+    .catch((e) => console.error(e.stack));
+};
 
 module.exports = {
-  connection, Room, postReviews, getReviews, putReviews, deleteReviews,
+  postReviews, getReviews, putReviews, deleteReviews,
 };
