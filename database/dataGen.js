@@ -3,7 +3,7 @@ const fs = require('fs');
 const imageOptions = require('./imageOptions');
 
 const writeReviews = fs.createWriteStream('reviews.csv');
-writeReviews.write('stay_id,name,pic,date,body,r_checking,r_accuracy,r_location,r_communication,r_cleanliness,r_value\n', 'utf8');
+writeReviews.write('stay_id,name,pic,date,body,r_checkin,r_accuracy,r_location,r_communication,r_cleanliness,r_value\n', 'utf8');
 
 function writeTenMillionReviews(writer, encoding, callback) {
   let i = 10000000;
