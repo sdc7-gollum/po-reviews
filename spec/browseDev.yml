@@ -1,0 +1,16 @@
+config:
+  target: "http://localhost:9999"
+  phases:
+    - duration: 5
+      arrivalRate: 10
+      rampTo: 1000
+  variables:
+    stayIds:
+      - ["9999910", "9999920", "9999930", "9999940", "9999950", "9999960", "9999970", "9999980", "9999990", "10000000"]
+scenarios:
+  - name: "Browse ten stays"
+    flow:
+      - loop:
+          - get:
+              url: "/api/reviews/{{ $loopElement }}"
+        over: stayIds

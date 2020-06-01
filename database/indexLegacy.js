@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/reviews`, {
+mongoose.connect(`mongodb://${process.env.DB_MONGO_HOST}:${process.env.DB_MONGO_PORT}/reviews`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

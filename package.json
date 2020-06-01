@@ -9,9 +9,13 @@
     "build": "webpack",
     "build:dev": "webpack --watch",
     "csv": "node --max-old-space-size=12288 database/dataGen.js",
+    "report:5min": "artillery run --output spec/reports/output5min.json spec/browse5min.yml",
+    "report:dev": "artillery run --output spec/reports/outputDev.json spec/browseDev.yml",
     "seed": "node database/seeder.js",
     "start": "node server",
     "start:dev": "nodemon server -i client -w server",
+    "stressTest:5min": "artillery run spec/browse15min.yml",
+    "stressTest:dev": "artillery run spec/browseDev.yml",
     "test": "jest"
   },
   "dependencies": {
@@ -22,6 +26,7 @@
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.10",
     "mongoose-sequence": "^5.2.2",
+    "newrelic": "^6.8.0",
     "pg": "^8.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
