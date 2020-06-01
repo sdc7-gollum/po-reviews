@@ -1,14 +1,16 @@
 require('dotenv').config();
+require('newrelic');
 const express = require('express');
 const path = require('path');
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  user: 'zdeckert',
-  host: 'localhost',
-  database: 'postgres',
-  port: 5432,
+  user: `${process.env.DB_PG_USER}`,
+  host: `${process.env.DB_PG_HOST}`,
+  database: `${process.env.DB_PG_DATABASE}`,
+  port: `${process.env.DB_PG_PORT}`,
 });
+
 const app = express();
 
 app.use(express.static(path.join(__dirname, '/../client/dist')));

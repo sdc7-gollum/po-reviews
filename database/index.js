@@ -2,10 +2,10 @@ require('dotenv').config();
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  user: 'zdeckert',
-  host: 'localhost',
-  database: 'postgres',
-  port: 5432,
+  user: `${process.env.DB_PG_USER}`,
+  host: `${process.env.DB_PG_HOST}`,
+  database: `${process.env.DB_PG_DATABASE}`,
+  port: `${process.env.DB_PG_PORT}`,
 });
 
 pool.on('error', console.error.bind('connection error'));
