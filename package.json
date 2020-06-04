@@ -14,7 +14,7 @@
     "seed": "node database/seeder.js",
     "start": "node server",
     "start:dev": "nodemon server -i client -w server",
-    "stressTest:5min": "artillery run spec/browse15min.yml",
+    "stressTest:5min": "artillery run spec/browse5min.yml",
     "stressTest:dev": "artillery run spec/browseDev.yml",
     "test": "jest"
   },
