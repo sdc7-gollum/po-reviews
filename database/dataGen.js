@@ -52,7 +52,7 @@ function writeTenMillionReviews(writer, encoding, callback) {
           ok = writer.write(data, encoding);
         }
       }
-      if (id % 100000 === 0) {
+      if (id % 500000 === 0) {
         console.log(`${(id / 100000)}%`);
       }
     } while (i > 0 && ok);
