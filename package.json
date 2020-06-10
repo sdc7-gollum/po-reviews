@@ -8,7 +8,8 @@
   "scripts": {
     "build": "webpack",
     "build:dev": "webpack --watch",
-    "csv": "node --max-old-space-size=12288 database/dataGen.js",
+    "csv1": "node --max-old-space-size=12288 database/dataGenReviews.js",
+    "csv2": "node --max-old-space-size=12288 database/dataGenStays.js",
     "report:5min": "artillery run --output spec/reports/output5min.json spec/browse5min.yml",
     "report:dev": "artillery run --output spec/reports/outputDev.json spec/browseDev.yml",
     "seed": "node database/seeder.js",

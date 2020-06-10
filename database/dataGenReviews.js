@@ -30,11 +30,8 @@ function writeTenMillionReviews(writer, encoding, callback) {
         } day = Math.floor(Math.random() * 29) + 1;
         return `2020-${month}-${day}`;
       };
-      for (let r = 1; r < numReviews + 1; r += 1) {
-        let stayId;
-        if (r < 10) {
-          stayId = `${id}.0${r}`;
-        } else stayId = `${id}.${r}`;
+      for (let r = 0; r < numReviews; r += 1) {
+        const stayId = id;
         const name = faker.name.firstName();
         const pic = imageOptions[Math.floor(Math.random() * 40)];
         const date = getRandomDate();
@@ -65,5 +62,5 @@ function writeTenMillionReviews(writer, encoding, callback) {
 
 writeTenMillionReviews(writeReviews, 'utf-8', () => {
   writeReviews.end();
-  console.log('csv complete!');
+  console.log('reviews.csv complete!');
 });
