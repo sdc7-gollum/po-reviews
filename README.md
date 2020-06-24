@@ -1,29 +1,24 @@
-# project-overnight/po-reviews
+# Project Overnight
 
-> This is the reviews module of Project Overnight.
+> This is the reviews module of Project Overnight. Displays user picture, user name, date, text, and 6 numerical ratings for reviews.
 
 ## Related Projects
 
   - https://github.com/project-overnight/
-
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-
+  - https://github.com/sdc7-gollum/po-zdeckert-proxy
+  - https://github.com/sdc7-gollum/po-reservations
+  - https://github.com/sdc7-gollum/po-photo-banner
+  
 ## Usage
 
-> Some usage instructions
+> This app contians 10,000,000 unique pages. Example: http://localhost:3030/?10
 
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+- Node 12
+-PostgreSQL 12
 
-- Node 6.13.0
-- etc
-
-A  `.env` file is needed inside root and for ./database
+A  `.env` file is needed inside root
 
 ## Development
 
@@ -32,8 +27,32 @@ A  `.env` file is needed inside root and for ./database
 From within the root directory:
 
 ```sh
-npm install -g webpack
 npm install
+```
+
+To install PostreSQL, please follow these instructions [here](https://www.postgresql.org/download/linux/ubuntu/)
+
+## Build Bundle
+
+```sh
+npm run build
+```
+
+## Start Server
+
+```sh
+npm run start
+```
+## Generate Data
+
+```sh
+npm run csv1
+```
+
+## Seed Database
+
+```sh
+npm run seed
 ```
 
 ## CRUD Api
