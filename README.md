@@ -16,13 +16,9 @@
 ## Requirements
 
 - Node 12
--PostgreSQL 12
+- PostgreSQL 12
 
-A  `.env` file is needed inside root
-
-## Development
-
-### Installing Dependencies
+## Installing Dependencies
 
 From within the root directory:
 
